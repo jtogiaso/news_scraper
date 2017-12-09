@@ -1,0 +1,31 @@
+{
+  "name": "news_scraper",
+  "version": "1.0.0",
+  "description": "shows web scraping ability",
+  "main": "node server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtogiaso/news_scraper.git"
+  },
+  "keywords": [
+    "news"
+  ],
+  "author": "jtogiaso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jtogiaso/news_scraper/issues"
+  },
+  "homepage": "https://github.com/jtogiaso/news_scraper#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.13.6",
+    "morgan": "^1.9.0",
+    "request": "^2.83.0"
+  }
+}
