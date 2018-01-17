@@ -56,7 +56,7 @@ require("./app/routes/routes.js")(app);
  
 //Sync Database
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/news", {
+mongoose.connect("mongodb://localhost/articles", {
   useMongoClient: true
 });
 

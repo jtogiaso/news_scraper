@@ -1,38 +1,51 @@
 <!--Body-->
-
-<main role="main" class="container-fluid main-dashboard">
-  <section id="dashboard-jumbotron" class="container jumbotron">
-    <div class="row">
-      <div class="col-12 col-md-6 offset-md-3">
-        <h2 class="text-center">Your Test</h2>
-
-
-        <ol id="testGenerated">
-
-
-          {{#each news.article }}
-            <li>
-              <div>
-                <a href="{{article.url}}">{{article.title}}</a>
-              </div>
-            </li>
-            <li>{{article.summary}}</li>>
-          
-              {{#each article.comment}}
-
-                <div class="form-check">
-                  User: {{comment.user}}
-                  Date: {{comment.date}}
-                  Comment: {{comment.text}}
-                </div>
-              {{/each}}
-
-          {{/each}}
-      </div>
-    </div>
-    <!--row--> 
-
-  </section>
+<main role="main" class="main-dashboard">
+    <section id="dashboard-jumbotron" class="jumbotron">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <ol class="testGenerated">
+                    {{#each data }}
+                    <li>
+                        <div>
+                            <a href="{{link}}">
+                                <h3>
+                                  {{title}}
+                                </h3>
+                            </a>
+                        </div>
+                        <div>
+                            <div class="forumDiv">
+                                <textarea class="autoExpand forumPost form-control" rows="4" data-min-rows="4" id="{{id}}"></textarea>
+                                <button class="forumPostButton btn btn-default" article-id="{{id}}">Post</button>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Comments</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-unstyled list-group">
+                                    {{#each comments}}
+                                    <li class="list-group-item">
+                                        <div>
+                                            {{text}}
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br> Posted: {{date}}
+                                        </div>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ol>
+            </div>
+        </div>
+        <!--row-->
+    </section>
 </main>
-
 <!--End Body -->

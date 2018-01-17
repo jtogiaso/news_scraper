@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const ArticleSchema = new Schema({
   title: String,
   summary: String,
-  url: String
+  link: {type: String , unique: true},
+  comments: Array
 });
 
 const Article = mongoose.model("Article", ArticleSchema);

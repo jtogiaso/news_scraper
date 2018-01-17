@@ -1,33 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="Quizomatic assessment engine">
-		<meta name="author" content="JT, Matt, Oi, and Dan">
-		<!--<link rel="icon" href="../../../../favicon.ico">-->
-		<title>{{ title }}</title>
-		<!--bootstrap 4-->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-		<!--custom css-->
-		<link rel="stylesheet" href="/assets/css/custom.css">
-		<!--jquery-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	</head>
-	<body>
-		<header>Welcome to News Scraper
-		</header>
-		
-	 
-		
-		{{{ body }}} 
-		
+<head>
+    <meta charset="utf-8">
+    <!--<link rel="icon" href="../../../../favicon.ico">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>News Scraper</title>
+    <!--bootstrap 3.3.7-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 
-		
-		<footer class="footer">
-		  <div class="container text-center"> <small>&copy; News Scraper</small> </div>
-		</footer>
-		<script type="text/javascript" src="/assets/js/{{ script }}.js"></script>
-	</body>
+    <!--custom css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.css">
+
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+	<!--Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	
+
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse">
+            <div class="">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand">News Scraper</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <header class="text-center jumbotron">
+            <h1 class="">
+				Welcome! Scrape the Web!<br>
+			</h1>
+			<button id="scraper">Click for more news!</button>
+			<div id="resultsModal" class="modal fade" role="dialog">
+            	<div class="modal-dialog">
+	                <!-- Modal content-->
+	                <div class="modal-content">
+	                    <div class="modal-header">
+	                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	                        <h2 class="modal-title"><strong>Scraped!</strong></h2>
+	                    </div>
+	                    <div class="modal-body">
+	                        <h2 id="scrapeMsg"></h2>
+	                    </div>
+	                    <div class="modal-footer">
+	                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+        </header>
+        {{{ body }}}
+        <footer class="footer">
+            <div class="container text-center"> <small>&copy; News Scraper</small> </div>
+        </footer>
+    </div>
+    <script type="text/javascript" src="/assets/js/{{ script }}.js"></script>
+</body>
+
 </html>

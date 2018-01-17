@@ -1,0 +1,98 @@
+.regularBorder {
+	border: solid gray 5px;
+	padding: 5px;
+}
+
+body {
+	padding-top: 10px;
+	color: antiquewhite;
+	background-color: purple;
+}
+
+input {
+	color: black;
+}
+
+div.img-wrap img {
+	width: 200px;
+	height: 200px;
+	background-color: black;
+	text-align: center;
+}
+
+.instructions {
+	height: 100%;
+}
+
+.flexVert {
+	display: table;
+	height: 100%;
+}
+
+.flexVertDescendant1 {
+	display: table-row;
+	background-color: orange;
+}
+
+.flexVertDescendant2{
+	display: table-row;
+	background-color: green;
+	height: 100%;
+}
+
+.chat-input-style {
+	display: flex;
+}
+
+.input-100-pc-wide {
+	width: 100%;
+	flex: auto;
+	border: solid grey 1px;
+}
+
+.input-100-pc-wide:focus{
+	background-color: tan;
+}
+
+.chat-button{
+	flex: initial;
+	background-color: black;
+	color: white;
+}
+
+.chat-button:hover{
+	background-color: teal;
+}
+
+.chatBoxStyle {
+	height: 150px;
+	border: solid black 2px;
+	overflow: auto;
+	box-shadow: 2px 2px;
+	color: black;
+}
+
+
+.p1 {
+	color: aqua;
+}
+
+.p2 {
+	color: khaki;
+}
+
+.gold {
+	background-color: purple;
+}
+
+.crimson {
+	background-color: crimson;
+}
+
+.playerNameSubmitBtn {
+	color: black;
+}
+
+.instructionsDiv {
+	height: auto;
+}

@@ -11,8 +11,9 @@ const controller = require("../controllers/controller.js");
 module.exports = function(app) {
 // ===============================================================================
   
-  app.get("/", controller.get_home_page);
+  app.get("/", controller.home);
 
+  app.get("/scrape", controller.scrape);
 
   app.post("/comment", controller.post_comment);
 
