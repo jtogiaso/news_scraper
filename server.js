@@ -4,6 +4,8 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================
+
+// mongodb://heroku_wl1szp4w:696invpn3tr7kl1d1ka21rdqk@ds259117.mlab.com:59117/heroku_wl1szp4w
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -55,8 +57,9 @@ require("./app/routes/routes.js")(app);
 // =============================================================
  
 //Sync Database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articles";
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/articles", {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 
