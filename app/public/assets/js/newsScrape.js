@@ -5,7 +5,7 @@ $(document).ready(() => {
 
     $(".forumPostButton").on("click", (e) => {
         let article_id = $(e.target).attr("article-id");
-        let comment = $("textarea#" + article_id).val().trim();
+        let comment = $("textarea#ta" + article_id).val().trim();
 
         if (comment !== '') {
             $.ajax("/comment", {
@@ -15,8 +15,21 @@ $(document).ready(() => {
             	console.log(results);
             	// location.reload();
             });
+            $("ol#ol" + article_id)
+            .append(
+                "<li class=\"list-group-item\">" + 
+                    "<div>" +
+                        comment +          
+                        "<br>" +
+                        "<br>" +
+                        "<br>" +
+                        "<br> Posted: " + new Date() +
+                    "</div>" +
+                "</li>"
+            );
         }
-        $("textarea#" + article_id).val("");
+        $("textarea#ta" + article_id).val("");
+
     });
 
     $("#scraper").on("click", () => {
@@ -29,4 +42,35 @@ $(document).ready(() => {
             
         });
     });
+
+    $(".save-link").on("click", (e) => {
+        let article_id = $(e.target).attr("article-id");
+
+        
+        $.ajax("/save", {
+            type: "POST",
+            data: {article: article_id , saved: true}
+        }).then(function(results) {
+            console.log(results);
+        });
+
+    });
+
+    $(".remove-link").on("click", (e) => {
+        let article_id = $(e.target).attr("article-id");
+
+        
+        $.ajax("/save", {
+            type: "POST",
+            data: {article: article_id , saved: false}
+        }).then(function(results) {
+            console.log(results);
+        });
+
+    });
+
+    $("#closer").on("click" , () => {
+        location.reload();
+    })
+
 });

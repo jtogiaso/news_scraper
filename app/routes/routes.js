@@ -15,6 +15,10 @@ module.exports = function(app) {
 
   app.get("/scrape", controller.scrape);
 
+  app.get("/saved" , controller.saved);
+
   app.post("/comment", controller.post_comment);
+
+  app.post("/save" , controller.save);
 
 };

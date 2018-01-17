@@ -5,13 +5,13 @@ const request = require("request");
 
 let controller = {
     post_comment: (req, res) => {
-    	
-    	let comment = {
-    		text: req.body.text,
-    		date: req.body.date
 
-    	}
-    	db.Article.update({_id: req.body.article} , { $addToSet: { comments: comment } })
+        let comment = {
+            text: req.body.text,
+            date: req.body.date
+
+        }
+        db.Article.update({ _id: req.body.article }, { $addToSet: { comments: comment } })
             .then(data => {
                 console.log(data);
                 res.send("Comment submitted");
@@ -46,9 +46,12 @@ let controller = {
                 // then save the values for any "href" attributes that the child elements may have
                 let link = "http://www.sandiegouniontribune.com" + $(element).find('a').attr("href");
                 // Save these results in an object that we'll push into the results array we defined earlier
+
+                // let summary = No summaries exist on page from cheerio load unless we want to load a snippet of the actual page.
                 results.push({
                     link: link,
                     title: title,
+                    // summary: summary
                 });
             });
 
@@ -59,12 +62,34 @@ let controller = {
                     res.send("" + data.length + "");
                 })
                 .catch(err => {
-                	console.log("Nothing has been inserted after scrape!");
+                    console.log("Nothing has been inserted after scrape!");
                     res.send(false);
                 });
 
         });
 
+    },
+    saved: (req, res) => {
+        db.Article.find({saved: true})
+            .then(data => {
+                let boo;
+                console.log(data.length);
+                if (data.length) {
+                    boo = true;   
+                }
+                else boo = false
+                res.render("news", {
+                    title: 'Welcome to News Scraper',
+                    script: 'newsScrape',
+                    data: data,
+                    present: boo,
+                    message: "You have to click the save button on some of your favorite articles!",
+                    home: false
+                });
+            })
+            .catch(err => {
+                res.send("error occured")
+            });
     },
     home: (req, res) => {
         db.Article.find()
@@ -72,8 +97,18 @@ let controller = {
                 res.render("news", {
                     title: 'Welcome to News Scraper',
                     script: 'newsScrape',
-                    data: data
+                    data: data,
+                    home: true
                 });
+            })
+            .catch(err => {
+                res.send("error occured")
+            });
+    },
+    save: (req, res) => {
+        db.Article.update({_id: req.body.article} , { $set: { saved: req.body.saved }})
+            .then(data => {
+                res.send("successful save");
             })
             .catch(err => {
                 res.send("error occured")
